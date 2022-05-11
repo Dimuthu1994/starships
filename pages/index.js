@@ -21,8 +21,24 @@ export default function Home() {
     getStarShips();
   }, [pageNum]);
 
+  useEffect(() => {
+    async function getSearchShips() {
+      const res = await axios(
+        `https://swapi.dev/api/starships/?search=${search}`
+      );
+      setTotal(res.data.count);
+      setStarShips(res.data.results);
+    }
+    getSearchShips();
+  }, [pageNum]);
+
   const handlePageChange = (page) => {
     setPageNum(page);
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value.toLowerCase());
   };
 
   return (
@@ -30,7 +46,7 @@ export default function Home() {
       <h1 className="text-5xl font-bold text-center pt-5 ">
         Star Wars StarShip
       </h1>
-      <SearchBar />
+      <SearchBar onChange={handleChange} />
       <StarShips starShips={starShips} />
       <Pagination
         pageSize={10}
