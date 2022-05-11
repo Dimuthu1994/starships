@@ -30,7 +30,7 @@ export default function Home() {
       setStarShips(res.data.results);
     }
     getSearchShips();
-  }, [pageNum]);
+  }, [search]);
 
   const handlePageChange = (page) => {
     setPageNum(page);

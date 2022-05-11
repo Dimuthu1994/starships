@@ -1,4 +1,4 @@
-function SearchBar(props) {
+function SearchBar({ onChange }) {
   return (
     <>
       <div className="flex justify-center mt-4">
@@ -24,6 +24,7 @@ function SearchBar(props) {
       "
             id="exampleSearch"
             placeholder="Search"
+            onChange={onChange}
           />
         </div>
       </div>
