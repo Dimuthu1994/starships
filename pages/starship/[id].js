@@ -1,24 +1,13 @@
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import axios from "axios";
+import { useRouter } from "next/router";
 
 function StarShipDetail({ starShip }) {
-  const [movieTitle, setMovieTitle] = useState([]);
-  let filmArray = starShip.films;
+  const router = useRouter();
+  const data = router.query;
+  const property = Object.values(data);
+  const newArr = property.slice(0, -1);
 
-  useEffect(() => {
-    async function FetchAll() {
-      const res = await axios.all(
-        filmArray.map((endpoint) => axios.get(endpoint))
-      );
-
-      const arrayMap = res.map((film) => film.data.title);
-      setMovieTitle(arrayMap);
-    }
-    FetchAll();
-  }, []);
-
-  const a = movieTitle.map((title) => title.replace(/\s+/g, "-").toLowerCase());
+  const a = property.map((title) => title.replace(/\s+/g, "-").toLowerCase());
 
   return (
     <div className="container max-w-4xl mx-auto pt-6">
@@ -46,7 +35,7 @@ function StarShipDetail({ starShip }) {
               {a.map((movie, i) => (
                 <Link href={`/${movie}`} key={i}>
                   <li className="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold cursor-pointer">
-                    {movie}
+                    {newArr[i]}
                   </li>
                 </Link>
               ))}

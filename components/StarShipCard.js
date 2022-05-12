@@ -31,7 +31,7 @@ function StarShipCard({ starShip }) {
   return (
     <div className="bg-white shadow-sm rounded-md cursor-pointer">
       <div className="px-6 py-2 ">
-        <Link href={`/starship/${id}`}>
+        <Link href={{ pathname: `/starship/${id}`, query: movieTitle }}>
           <a>
             <div className="font-bold text-xl mb-1 text-center">
               {starShip.name}
