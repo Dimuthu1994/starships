@@ -2,7 +2,6 @@ import React from "react";
 import _ from "lodash";
 
 function Pagination({ itemsCount, pageSize, onPageChange, currentPage }) {
-  console.log(itemsCount, pageSize);
   const pagesCount = Math.ceil(itemsCount / pageSize);
   if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
@@ -15,7 +14,11 @@ function Pagination({ itemsCount, pageSize, onPageChange, currentPage }) {
             <a
               href="#"
               onClick={() => onPageChange(page)}
-              className="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className={
+                page === currentPage
+                  ? "py-2 px-3 text-blue-600 bg-blue-50 border border-gray-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                  : "py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              }
             >
               {page}
             </a>

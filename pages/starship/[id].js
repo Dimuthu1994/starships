@@ -41,11 +41,11 @@ function StarShipDetail({ starShip }) {
 
         <p className="text-gray-600 text-sm mt-4">
           Featured Films:
-          <div class="flex justify-start">
-            <ul class="bg-white rounded-lg w-96 text-gray-900">
+          <div className="flex justify-start">
+            <ul className="bg-white rounded-lg w-96 text-gray-900">
               {a.map((movie, i) => (
                 <Link href={`/${movie}`} key={i}>
-                  <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold cursor-pointer">
+                  <li className="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold cursor-pointer">
                     {movie}
                   </li>
                 </Link>

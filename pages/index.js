@@ -52,6 +52,7 @@ export default function Home() {
         pageSize={10}
         itemsCount={total}
         onPageChange={handlePageChange}
+        currentPage={pageNum}
       />
     </div>
   );
