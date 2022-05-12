@@ -21,7 +21,7 @@ function StarShipCard({ starShip }) {
       setMovieTitle(arrayMap);
     }
     FetchAll();
-  }, []);
+  }, [filmArray]);
 
   // const handleRating = (e, newValue) => {
   //   setValue(newValue);
